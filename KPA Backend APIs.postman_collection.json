@@ -1,0 +1,64 @@
+{
+	"info": {
+		"_postman_id": "f289a9eb-097a-4459-912a-d3b6a9f064f7",
+		"name": "KPA Backend APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46895127",
+		"_collection_link": "https://pallavikadukar.postman.co/workspace/Pallavi-Kadukar's-Workspace~434c8723-b2c5-43c9-8b2c-f51360e7bcf6/collection/46895127-f289a9eb-097a-4459-912a-d3b6a9f064f7?action=share&source=collection_link&creator=46895127"
+	},
+	"item": [
+		{
+			"name": "GET",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/users",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"phone\": \"9876543210\",\r\n    \"password\": \"mypassword123\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/add-user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"add-user"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
