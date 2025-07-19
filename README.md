@@ -1,76 +1,134 @@
 KPA Backend Assignment
-Overview
-This project implements two backend APIs using FastAPI (Python) and MySQL for the KPA Form Data assignment.
-The APIs allow you to:
+📌 Overview
+This project implements two REST APIs using FastAPI (Python) and MySQL as part of the KPA Form Data assignment.
+The APIs are designed to:
 
-Add a user (POST /add-user)
+Add a user (via POST /add-user).
 
-Fetch all users (GET /users)
+Fetch all users (via GET /users).
 
-Tech Stack
+Both APIs adhere to the required request/response structure and can be tested via Swagger UI or Postman.
+
+🚀 Tech Stack
 Language: Python 3.13
-Framework: FastAPI
-Server: Uvicorn
-Database: MySQL (via mysql-connector-python)
-Testing: Postman & Swagger UI
 
-Setup Instructions
-1. Clone or Download the Project
-Extract the kpa_backend folder (contains main.py) from the zip file.
+Framework: FastAPI
+
+ASGI Server: Uvicorn
+
+Database: MySQL (via mysql-connector-python)
+
+Testing Tools: Swagger UI & Postman
+
+⚙️ Setup Instructions
+1. Clone or Download the Repository
+
+git clone https://github.com/<your-username>/kpa_backend_assignment.git
+cd kpa_backend_assignment
+(Or download the ZIP and extract.)
 
 2. Install Dependencies
-Run the following commands:
-pip install fastapi uvicorn mysql-connector-python
+Ensure Python and pip are installed.
+Run:
 
-3. Setup MySQL Database
-Open MySQL Workbench.
-Run the following SQL commands:
-CREATE DATABASE kpa_db;
+
+pip install fastapi uvicorn mysql-connector-python
+3. Configure MySQL Database
+Run these SQL commands in MySQL Workbench:
+
+
+CREATE DATABASE 
+
+kpa_db;
+
 USE kpa_db;
 
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    phone VARCHAR(20) UNIQUE,
-    password VARCHAR(50)
+    
+phone VARCHAR(20) UNIQUE,
+   
+password VARCHAR(50)
+
 );
 
-Update your MySQL credentials in main.py:
+Update main.py with your MySQL credentials:
+
+
 user="root",
+
 password="pallavi@19",
 
-4. Run the Server
+
+4. Run the FastAPI Server
+
 uvicorn main:app --reload
-You’ll see:
+
+If successful, you’ll see:
+
+
 Uvicorn running on http://127.0.0.1:8000
 
-5. Test the APIs
-Using Swagger UI
-Go to: http://127.0.0.1:8000/docs
+🧪 Testing the APIs
 
-Using Postman
-Import the file: KPA Backend APIs.postman_collection.json.
+Swagger UI
+
+Visit:
+
+http://127.0.0.1:8000/docs
+
+Use the Try it out feature to test /add-user and /users.
+
+Postman
+
+Import the collection:
+
+KPA Backend APIs.postman_collection.json
 
 Test:
 
 POST /add-user
+
+Request body:
+
+
 {
   "phone": "7760873976",
   "password": "to_share@123"
 }
 GET /users
-Returns all users.
+Fetches all users in the database.
 
-Implemented APIs
-POST /add-user
+📂 Project Structure
 
-Adds a new user to the database.
+kpa_backend_assignment/
+│
+├── main.py                         # FastAPI code
 
-Input: JSON (phone, password).
+├── README.md                       # Project documentation
 
-Response: { "message": "User added successfully" }.
+└── KPA Backend APIs.postman_collection.json  # Postman collection
 
-GET /users
+🌟 Implemented APIs
 
-Fetches all users.
+1. POST /add-user
+   
+Description: Add a new user to the database.
 
-Response: { "users": [[1, "phone"], [2, "phone"]] }.
+Request Body:
+
+
+{ "phone": "1234567890", "password": "mypassword" }
+Response:
+
+
+{ "message": "User added successfully" }
+
+2. GET /users
+   
+Description: Fetch all users from the database.
+
+Response:
+
+
+{ "users": [[1, "1234567890"]] }
